@@ -1,26 +1,26 @@
 import React from 'react';
-import TutorCard from '../components/TutorCard';
+import StudentCard from './StudentCard';
 import styles from '../styles/TutorCard.module.css';
-import {Tutor} from '../components/TutorCard';
-import TutorMatchCard from '../components/TutorMatchCard';
+import {Student} from './StudentCard';
+import StudentMatchCard from '../components/StudentMatchCard';
 
 
 
 interface SectionProps {
   header: String;
-  tutors: Tutor[];
+  students: Student[];
   isMatchCard: boolean;
 }
 
-const DisplayTutorSection: React.FC<SectionProps> = ({header, tutors, isMatchCard}) => {
+const DisplayTutorSection: React.FC<SectionProps> = ({header, students, isMatchCard}) => {
   return (
     <div>
       <h2 className="text-3xl font-bold mb-4">{header}</h2>
       <div className={styles['card-container']}>
-        {tutors.map((tutor, index) => (
+        {students.map((student, index) => (
           isMatchCard ?
-          <TutorMatchCard key={index} tutor={tutor} /> :
-          <TutorCard key={index} tutor={tutor}/>
+          <StudentMatchCard key={index} student={student} /> :
+          <StudentCard key={index} student={student}/>
         ))}
       </div>
     </div>
