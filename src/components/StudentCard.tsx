@@ -8,10 +8,10 @@ export interface Student {
 
 interface StudentCardProps {
   student: Student;
-  isMatchedCard: boolean;
+  isMatchCard: boolean;
 }
 
-const StudentCard: React.FC<StudentCardProps> = ({ student, isMatchedCard }) => {
+const StudentCard: React.FC<StudentCardProps> = ({ student, isMatchCard }) => {
   const handleAccept = () => {
     console.log('Student accepted');
   };
@@ -35,7 +35,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, isMatchedCard }) => 
       <p className="font-light">{student.age} y.o.</p>
       <p className="font-light">{student.subjects.join(', ')}</p>
       <div className="mt-auto">
-        {isMatchedCard ? (
+        {isMatchCard ? (
           <div className="flex justify-between">
             <button className="px-4 py-2 flex items-center justify-center w-20 h-10 rounded-md shadow-md text-gray-700 bg-violet-200 hover:bg-violet-300" onClick={handleChat}>Chat</button>
             <button className="px-4 py-2 flex items-center justify-center w-20 h-10 rounded-md shadow-md text-gray-700 bg-gray-200 hover:bg-gray-300" onClick={handleUnmatch}>Unmatch</button>
