@@ -1,8 +1,6 @@
 import React from 'react';
 import StudentCard from './StudentCard';
-import styles from '../styles/TutorCard.module.css';
 import {Student} from './StudentCard';
-import StudentMatchCard from '../components/StudentMatchCard';
 
 
 
@@ -14,13 +12,13 @@ interface SectionProps {
 
 const DisplayTutorSection: React.FC<SectionProps> = ({header, students, isMatchCard}) => {
   return (
-    <div>
+    <div className='m-10 p-10 bg-slate-50 rounded-lg'>
       <h2 className="text-3xl font-bold mb-4">{header}</h2>
-      <div className={styles['card-container']}>
+      <div className="flex flex-wrap gap-4">
         {students.map((student, index) => (
           isMatchCard ?
-          <StudentMatchCard key={index} student={student} /> :
-          <StudentCard key={index} student={student}/>
+          <StudentCard key={index} student={student} isMatchedCard={true} /> :
+          <StudentCard key={index} student={student} isMatchedCard={false} />
         ))}
       </div>
     </div>
