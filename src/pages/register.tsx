@@ -8,7 +8,7 @@ import Intro from "~/components/Intro";
 
 const Register: NextPage = () => {
   return (
-    <div className="w-screen h-screen bg-neutral-400 flex flex-col items-center justify-center">
+    <div className="w-screen h-screen bg-customBg flex flex-col items-center justify-center">
       <div className="flex gap-3">
         <Intro />
         <Form />

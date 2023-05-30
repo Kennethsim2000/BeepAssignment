@@ -3,6 +3,8 @@ import { RxCross1 } from "react-icons/rx";
 
 const Form: React.FC = () => {
   const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [dob, setDOB] = useState<string>("");
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>([]);
   const [pricing, setPricing] = useState<number>(0);
@@ -25,36 +27,86 @@ const Form: React.FC = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white shadow-md rounded px-6 py-5 md:h-120 md:w-96"
+      className="bg-customForm shadow-md rounded px-6 py-5 md:h-120 md:w-96"
     >
-      <div className="mb-4">
+      <div className="flex flex-col justify-center items-center">
+        <p>I am a ...</p>
+        <div className="flex gap-0">
+          <button
+            type="button"
+            className="text-white bg-studentButton  focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium  text-sm px-5 py-2.5  "
+          >
+            Student
+          </button>
+          <button
+            type="button"
+            className="text-white bg-tutorButton  focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium text-sm px-5 py-2.5 "
+          >
+            Tutor
+          </button>
+        </div>
+      </div>
+      <div className="mb-2">
         <label className="block text-gray-700 font-bold mb-2">Name:</label>
         <input
           type="text"
           id="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full border rounded py-2 px-3 border-gray-400 focus:outline-none focus:border-blue-500"
+          className="w-full border rounded py-1.5 px-3 border-gray-400 focus:outline-none focus:border-blue-500"
         />
       </div>
-      <div className="mb-4">
-        <label htmlFor="dob" className="block text-gray-700 font-bold mb-2">
-          Date of Birth:
-        </label>
+      <div className="mb-2">
+        <label className="block text-gray-700 font-bold mb-2">Password:</label>
         <input
-          type="date"
-          id="dob"
-          value={dob}
-          onChange={(e) => setDOB(e.target.value)}
-          className="w-full border rounded py-2 px-3 border-gray-400 focus:outline-none focus:border-blue-500"
+          type="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full border rounded py-1.5 px-3 border-gray-400 focus:outline-none focus:border-blue-500"
         />
       </div>
 
-      <div className="mb-4">
+      <div className="flex gap-2">
+        <div className="mb-2">
+          <label htmlFor="dob" className="block text-gray-700 font-bold mb-2">
+            Date of Birth:
+          </label>
+          <input
+            type="date"
+            id="dob"
+            value={dob}
+            onChange={(e) => setDOB(e.target.value)}
+            className="w-full border rounded py-1.5 px-3 border-gray-400 focus:outline-none focus:border-blue-500"
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="pricing"
+            className="block text-gray-700 font-bold mb-2"
+          >
+            Pricing:
+          </label>
+          <input
+            type="text"
+            id="pricing"
+            value={pricing}
+            onChange={(e) =>
+              setPricing(e.target.value === "" ? 0 : parseInt(e.target.value))
+            }
+            className="w-full  border rounded py-2 px-3 border-gray-400 focus:outline-none focus:border-blue-500"
+          />
+        </div>
+      </div>
+
+      <div className="mb-2">
+        <label htmlFor="pricing" className="block text-gray-700 font-bold mb-2">
+          Subjects: (Can select more than one)
+        </label>
         <select
           value=""
           onChange={handleSubjectChange}
-          className="w-full border rounded py-2 px-3 border-gray-400 focus:outline-none focus:border-blue-500 w-full"
+          className="w-full border rounded py-1.5 px-3 border-gray-400 focus:outline-none focus:border-blue-500 w-full"
         >
           <option value="">Select a subject</option>
           {subjectOptions.map((subject) => (
@@ -83,20 +135,7 @@ const Form: React.FC = () => {
           </div>
         )}
       </div>
-      <div className="mb-4">
-        <label htmlFor="pricing" className="block text-gray-700 font-bold mb-2">
-          Pricing:
-        </label>
-        <input
-          type="text"
-          id="pricing"
-          value={pricing}
-          onChange={(e) =>
-            setPricing(e.target.value === "" ? 0 : parseInt(e.target.value))
-          }
-          className="w-full  border rounded py-2 px-3 border-gray-400 focus:outline-none focus:border-blue-500"
-        />
-      </div>
+
       <button
         type="submit"
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
