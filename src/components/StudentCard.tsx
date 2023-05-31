@@ -1,27 +1,38 @@
 import React from 'react';
 import axios from 'axios';
-import { tutorID } from '~/pages/displayStudents';
+import { userID, userIsTutor } from '~/pages/displayStudents';
 
-export interface Student {
+export interface User {
   id: number;
   name: string;
   age: number;
   subjects: string[];
+  pricing?: number;
 }
 
-interface StudentCardProps {
-  student: Student;
+interface DisplayedUserCardProps {
+  displayedUser: User;
   isMatchCard: boolean;
 }
 
-const StudentCard: React.FC<StudentCardProps> = ({ student, isMatchCard }) => {
+const DisplayedUserCard: React.FC<DisplayedUserCardProps> = ({ displayedUser, isMatchCard }) => {
   const handleAccept = () => {
-    console.log('Student accepted');
-    axios
-    .put(`http://localhost:8080/tutor/like/${tutorID}/${student.id}`)
-    .catch((error) => {
-      console.error('Error liking student', error);
-    });
+    if (userIsTutor) {
+      console.log('Student accepted');
+      axios
+      .put(`http://localhost:8080/tutor/like/${userID}/${displayedUser.id}`)
+      .catch((error) => {
+        console.error('Error liking student', error);
+      });
+    } else {
+      console.log('Tutor accepted');
+      axios
+      .put(`http://localhost:8080/student/like/${userID}/${displayedUser.id}`)
+      .catch((error) => {
+        console.error('Error liking tutor', error);
+      });
+    }
+
   };
 
   const handleReject = () => {
@@ -33,20 +44,30 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, isMatchCard }) => {
   }
 
   const handleUnmatch = () => {
-    console.log('Student accepted');
-    axios
-    .delete(`http://localhost:8080/tutor/unmatch/${tutorID}/${student.id}`)
-    .catch((error) => {
-      console.error('Error unmatching student', error);
-    });
+    if (userIsTutor) {
+      console.log('Student accepted');
+      axios
+        .delete(`http://localhost:8080/tutor/unmatch/${userID}/${displayedUser.id}`)
+        .catch((error) => {
+          console.error('Error unmatching student', error);
+        });
+    } else {
+      console.log('Tutor accepted');
+      axios
+      .delete(`http://localhost:8080/student/unmatch/${userID}/${displayedUser.id}`)
+      .catch((error) => {
+        console.error('Error unmatching tutor', error);
+      });
+    }
   };
 
   return (
     <div className= "flex flex-col p-4 w-72 bg-indigo-100 rounded-lg shadow-lg h-48">
 
-      <h2 className="my-1">{student.name}</h2>
-      <p className="font-light">{student.age} y.o.</p>
-      <p className="font-light">{student.subjects.join(', ')}</p>
+      <h2 className="my-1">{displayedUser.name}</h2>
+      <p className="font-light">{displayedUser.age} y.o.</p>
+      <p className="font-light">{displayedUser.subjects.join(', ')}</p>
+      {!userIsTutor && <p className="font-light">Pricing: ${displayedUser.pricing}</p>}
       <div className="mt-auto">
         {isMatchCard ? (
           <div className="flex justify-between">
@@ -65,4 +86,4 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, isMatchCard }) => {
   );
 };
 
-export default StudentCard;
+export default DisplayedUserCard;
