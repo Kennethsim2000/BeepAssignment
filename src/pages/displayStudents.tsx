@@ -16,10 +16,17 @@ import { Student } from '~/components/StudentCard';
 //   },
 // ];
 
+export const tutorID = 13;
+
 export interface ResponseData {
-  interestedStudents: Student[];
-  matchedStudents: Student[];
-  otherStudents: Student[];
+  code: number;
+  message: string;
+  data: {
+    interestedStudents: Student[];
+    matchedStudents: Student[];
+    otherStudents: Student[];
+  };
+  success: boolean;
 }
 
 
@@ -30,9 +37,9 @@ const DisplayTutor: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get<ResponseData>('http://localhost:8080/tutor/getListsVo/5')
+      .get<ResponseData>(`http://localhost:8080/tutor/getListsVo/${tutorID}`)
       .then((response) => {
-        const { interestedStudents, otherStudents } = response.data;
+        const { interestedStudents, otherStudents } = response.data.data;
         setInterestedStudents(interestedStudents);
         setOtherStudents(otherStudents);
       })

@@ -4,6 +4,7 @@ import { Student } from '~/components/StudentCard';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { ResponseData } from '~/pages/displayStudents';
+import { tutorID } from '~/pages/displayStudents';
 
 // const matchedStudents = [
 //   {
@@ -24,9 +25,9 @@ const DisplayTutor: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get<ResponseData>('http://localhost:8080/tutor/getListsVo/5')
+      .get<ResponseData>(`http://localhost:8080/tutor/getListsVo/${tutorID}`)
       .then((response) => {
-        const { matchedStudents } = response.data;
+        const { matchedStudents } = response.data.data;
         setMatchedStudents(matchedStudents);
       })
       .catch((error) => {

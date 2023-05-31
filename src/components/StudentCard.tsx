@@ -1,6 +1,9 @@
 import React from 'react';
+import axios from 'axios';
+import { tutorID } from '~/pages/displayStudents';
 
 export interface Student {
+  id: number;
   name: string;
   age: number;
   subjects: string[];
@@ -14,6 +17,11 @@ interface StudentCardProps {
 const StudentCard: React.FC<StudentCardProps> = ({ student, isMatchCard }) => {
   const handleAccept = () => {
     console.log('Student accepted');
+    axios
+    .put(`http://localhost:8080/tutor/like/${tutorID}/${student.id}`)
+    .catch((error) => {
+      console.error('Error liking student', error);
+    });
   };
 
   const handleReject = () => {
@@ -24,9 +32,14 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, isMatchCard }) => {
     throw new Error('Function not implemented.');
   }
 
-  function handleUnmatch(event: MouseEvent<HTMLButtonElement, MouseEvent>): void {
-    throw new Error('Function not implemented.');
-  }
+  const handleUnmatch = () => {
+    console.log('Student accepted');
+    axios
+    .delete(`http://localhost:8080/tutor/unmatch/${tutorID}/${student.id}`)
+    .catch((error) => {
+      console.error('Error unmatching student', error);
+    });
+  };
 
   return (
     <div className= "flex flex-col p-4 w-72 bg-indigo-100 rounded-lg shadow-lg h-48">
