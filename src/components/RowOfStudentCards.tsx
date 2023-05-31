@@ -1,22 +1,22 @@
 import React from 'react';
-import StudentCard from './StudentCard';
-import {Student} from './StudentCard';
+import DisplayedUserCard from './StudentCard';
+import {User} from './StudentCard';
 
 
 
 interface RowProps {
-  studentGroup: Student[];
+  displayedUserGroup: User[];
   isMatchCard: boolean;
 }
 
-const RowOfStudentCards: React.FC<RowProps> = ({studentGroup, isMatchCard}) => {
+const RowOfCards: React.FC<RowProps> = ({displayedUserGroup: displayedUserGroup, isMatchCard}) => {
   return (
       <div className="flex flex-wrap gap-4">
-        {studentGroup.map((student, index) => (
-          <StudentCard key={index} student={student} isMatchCard={isMatchCard} />
+        {displayedUserGroup.map((displayedUser, index) => (
+          <DisplayedUserCard key={index} displayedUser={displayedUser} isMatchCard={isMatchCard} />
         ))}
       </div>
   );
 };
 
-export default RowOfStudentCards;
+export default RowOfCards;
