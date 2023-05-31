@@ -1,10 +1,10 @@
 import React from 'react';
 import DisplayTutorSection from '~/components/DisplayTutorSection';
-import { User } from '~/components/StudentCard';
+import { Student } from '~/components/StudentCard';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { ResponseData } from '~/pages/displayStudents';
-import { userID } from '~/pages/displayStudents';
+import { tutorID } from '~/pages/displayStudents';
 
 // const matchedStudents = [
 //   {
@@ -21,13 +21,13 @@ import { userID } from '~/pages/displayStudents';
 
 const DisplayTutor: React.FC = () => {
 
-  const [matchedStudents, setMatchedStudents] = useState<User[]>([]);
+  const [matchedStudents, setMatchedStudents] = useState<Student[]>([]);
 
   useEffect(() => {
     axios
-      .get<ResponseData>(`http://localhost:8080/tutor/getListsVo/${userID}`)
+      .get<ResponseData>(`http://localhost:8080/tutor/getListsVo/${tutorID}`)
       .then((response) => {
-        const { matchedUsers: matchedStudents } = response.data.data;
+        const { matchedStudents } = response.data.data;
         setMatchedStudents(matchedStudents);
       })
       .catch((error) => {
@@ -37,7 +37,7 @@ const DisplayTutor: React.FC = () => {
 
   return (
     <div>
-      <DisplayTutorSection header="Matched Students" users={matchedStudents} isMatchCard={true}/>
+      <DisplayTutorSection header="Matched Students" students={matchedStudents} isMatchCard={true}/>
     </div>
   );
 };

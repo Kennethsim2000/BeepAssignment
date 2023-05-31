@@ -1,37 +1,27 @@
 import React from 'react';
 import axios from 'axios';
-import { userIsTutor, userID } from '~/pages/displayStudents';
+import { tutorID } from '~/pages/displayStudents';
 
-export interface User {
+export interface Student {
   id: number;
   name: string;
   age: number;
   subjects: string[];
-  pricing?: number;
 }
 
-interface UserCardProps {
-  user: User;
+interface StudentCardProps {
+  student: Student;
   isMatchCard: boolean;
 }
 
-const StudentCard: React.FC<UserCardProps> = ({ user: displayedUser, isMatchCard }) => {
+const StudentCard: React.FC<StudentCardProps> = ({ student, isMatchCard }) => {
   const handleAccept = () => {
-    if (userIsTutor) {
-      console.log('Student accepted');
-      axios
-        .put(`http://localhost:8080/tutor/like/${userID}/${displayedUser.id}`)
-        .catch((error) => {
-          console.error('Error liking student', error);
-        });
-    } else {
-      console.log('Tutor accepted');
-      axios
-      .put(`http://localhost:8080/student/like/${userID}/${displayedUser.id}`)
-      .catch((error) => {
-        console.error('Error liking tutor', error);
-      });
-    }
+    console.log('Student accepted');
+    axios
+    .put(`http://localhost:8080/tutor/like/${tutorID}/${student.id}`)
+    .catch((error) => {
+      console.error('Error liking student', error);
+    });
   };
 
   const handleReject = () => {
@@ -43,24 +33,20 @@ const StudentCard: React.FC<UserCardProps> = ({ user: displayedUser, isMatchCard
   }
 
   const handleUnmatch = () => {
-    if (userIsTutor) {
-      console.log('Student accepted');
-      axios
-      .delete(`http://localhost:8080/tutor/unmatch/${userID}/${displayedUser.id}`)
-      .catch((error) => {
-        console.error('Error unmatching student', error);
-      });
-    } else {
-    }
+    console.log('Student accepted');
+    axios
+    .delete(`http://localhost:8080/tutor/unmatch/${tutorID}/${student.id}`)
+    .catch((error) => {
+      console.error('Error unmatching student', error);
+    });
   };
 
   return (
     <div className= "flex flex-col p-4 w-72 bg-indigo-100 rounded-lg shadow-lg h-48">
 
-      <h2 className="my-1">{displayedUser.name}</h2>
-      <p className="font-light">{displayedUser.age} y.o.</p>
-      <p className="font-light">{displayedUser.subjects.join(', ')}</p>
-      {displayedUser.pricing && <p className="font-light">${displayedUser.pricing}/hr</p>}
+      <h2 className="my-1">{student.name}</h2>
+      <p className="font-light">{student.age} y.o.</p>
+      <p className="font-light">{student.subjects.join(', ')}</p>
       <div className="mt-auto">
         {isMatchCard ? (
           <div className="flex justify-between">
