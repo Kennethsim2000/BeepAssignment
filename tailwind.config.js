@@ -17,6 +17,7 @@ module.exports = {
         customIntro: "#62809A",
         studentButton: "#62809A",
         tutorButton: "#244667",
+        registerButton: "#B8CCDD",
       },
     },
     fontFamily: {
