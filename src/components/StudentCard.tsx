@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { userID, userIsTutor } from '~/pages/displayStudents';
+import { userID, userIsTutor } from '~/pages/displayPage';
 
 export interface User {
   id: number;
@@ -45,14 +45,14 @@ const DisplayedUserCard: React.FC<DisplayedUserCardProps> = ({ displayedUser, is
 
   const handleUnmatch = () => {
     if (userIsTutor) {
-      console.log('Student accepted');
+      console.log('Unmatching student');
       axios
         .delete(`http://localhost:8080/tutor/unmatch/${userID}/${displayedUser.id}`)
         .catch((error) => {
           console.error('Error unmatching student', error);
         });
     } else {
-      console.log('Tutor accepted');
+      console.log('Unmatching tutor');
       axios
       .delete(`http://localhost:8080/student/unmatch/${userID}/${displayedUser.id}`)
       .catch((error) => {

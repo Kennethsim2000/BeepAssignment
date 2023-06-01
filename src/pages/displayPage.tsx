@@ -3,45 +3,37 @@ import axios from "axios";
 import DisplayTutorSection from '~/components/DisplayTutorSection';
 import { User } from '~/components/StudentCard';
 
-// const interestedStudents = [
-//   {
-//     name: 'John Doe',
-//     age: 30,
-//     subjects: ['Math', 'Physics'],
-//   },
-//   {
-//     name: 'Jane Smith',
-//     age: 25,
-//     subjects: ['English', 'History'],
-//   },
-// ];
-
-export const userID = 12;
-export const userIsTutor = true;
+export const userID = 15;
+export const userIsTutor = false;
 
 export interface ResponseData {
   code: number;
   message: string;
   data: {
-    interestedStudents: User[];
-    matchedStudents: User[];
-    otherStudents: User[];
+    interestedUsers: User[];
+    matchedUsers: User[];
+    otherUsers: User[];
   };
   success: boolean;
 }
 
 
-const DisplayTutor: React.FC = () => {
+const DisplayPage: React.FC = () => {
 
   const [interestedStudents, setInterestedStudents] = useState<User[]>([]);
   const [otherStudents, setOtherStudents] = useState<User[]>([]);
 
   useEffect(() => {
+    fetchAndSetData();
+  }, [interestedStudents, otherStudents]);
+
+  //function to load, fetch data from backend
+  function fetchAndSetData() {
     if (userIsTutor) {
       axios
-        .get<ResponseData>(`http://localhost:8080/tutor/getListsVo/${userID}`)
+        .get<ResponseData>(`http://localhost:8080/tutor/getStudentListsVo/${userID}`)
         .then((response) => {
-          const { interestedStudents, otherStudents } = response.data.data;
+          const { interestedUsers: interestedStudents, otherUsers: otherStudents } = response.data.data;
           setInterestedStudents(interestedStudents);
           setOtherStudents(otherStudents);
         })
@@ -50,9 +42,9 @@ const DisplayTutor: React.FC = () => {
         });
     } else {
       axios
-        .get<ResponseData>(`http://localhost:8080/student/getListsVo/${userID}`)
+        .get<ResponseData>(`http://localhost:8080/student/getTutorListsVo/${userID}`)
         .then((response) => {
-          const { interestedStudents, otherStudents } = response.data.data;
+          const { interestedUsers: interestedStudents, otherUsers: otherStudents } = response.data.data;
           setInterestedStudents(interestedStudents);
           setOtherStudents(otherStudents);
         })
@@ -60,7 +52,7 @@ const DisplayTutor: React.FC = () => {
           console.error('Error fetching student data:', error);
         });
       }
-  }, []);
+  }
 
   const interestedHeader = userIsTutor ? 'Interested Students' : 'Interested Tutors';
   const otherHeader = userIsTutor ? 'Other Students' : 'Other Tutors';
@@ -73,4 +65,4 @@ const DisplayTutor: React.FC = () => {
   );
 };
 
-export default DisplayTutor;
+export default DisplayPage;
