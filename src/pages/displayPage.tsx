@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DisplayTutorSection from '~/components/DisplayTutorSection';
 import { User } from '~/components/StudentCard';
+import NavBar from "~/components/Navbar";
 
 export const userID = 15;
 export const userIsTutor = false;
