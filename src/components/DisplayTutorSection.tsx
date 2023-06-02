@@ -1,5 +1,5 @@
 import React from 'react';
-import {User} from './StudentCard';
+import {CardType, User} from './StudentCard';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import RowOfCards from './RowOfStudentCards';
@@ -8,10 +8,10 @@ import RowOfCards from './RowOfStudentCards';
 interface SectionProps {
   header: String;
   displayedUsers: User[];
-  isMatchCard: boolean;
+  cardType: CardType;
 }
 
-const DisplayTutorSection: React.FC<SectionProps> = ({header, displayedUsers, isMatchCard}) => {
+const DisplayTutorSection: React.FC<SectionProps> = ({header, displayedUsers, cardType}) => {
 
   //students array get sliced into array of studentArrays [[a,b,c,d,e],[f,g,h,i,j],[k,l,m,n,o]]
   function sliceUsersIntoGroups(users: User[], groupSize: number): User[][] {
@@ -24,14 +24,18 @@ const DisplayTutorSection: React.FC<SectionProps> = ({header, displayedUsers, is
   }
 
   return (
-    <div className='m-10 p-10 bg-slate-50 rounded-lg'>
-      <h2 className="text-3xl font-bold mb-4">{header}</h2>
+    <div className='m-10 p-10 bg-slate-50 rounded-lg min-h-[360px]'>
+      <h2 className="text-3xl font-bold mb-6">{header}</h2>
 
-      <Carousel>
-        {sliceUsersIntoGroups(displayedUsers, 5).map((displayedUserGroup, index) => (
-          <RowOfCards key={index} displayedUserGroup={displayedUserGroup} isMatchCard={isMatchCard} />
-        ))}
-      </Carousel>
+      {displayedUsers.length === 0 ? (
+        <p>Nothing at the moment...</p>
+        ) : (
+        <Carousel>
+          {sliceUsersIntoGroups(displayedUsers, 5).map((displayedUserGroup, index) => (
+            <RowOfCards key={index} displayedUserGroup={displayedUserGroup} cardType={cardType} />
+          ))}
+        </Carousel>
+        )}
 
     </div>
   );

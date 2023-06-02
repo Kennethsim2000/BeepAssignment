@@ -10,12 +10,14 @@ export interface User {
   pricing?: number;
 }
 
+export type CardType = 'match' | 'interested' | 'other';
+
 interface DisplayedUserCardProps {
   displayedUser: User;
-  isMatchCard: boolean;
+  cardType: CardType;
 }
 
-const DisplayedUserCard: React.FC<DisplayedUserCardProps> = ({ displayedUser, isMatchCard }) => {
+const DisplayedUserCard: React.FC<DisplayedUserCardProps> = ({ displayedUser, cardType }) => {
   const handleAccept = () => {
     if (userIsTutor) {
       console.log('Student accepted');
@@ -36,7 +38,21 @@ const DisplayedUserCard: React.FC<DisplayedUserCardProps> = ({ displayedUser, is
   };
 
   const handleReject = () => {
-    console.log('Student rejected');
+    if (userIsTutor) { // make student unlike tutor
+      console.log('Student rejected');
+      axios
+        .delete(`http://localhost:8080/student/unlike/${displayedUser.id}/${userID}`)
+        .catch((error) => {
+          console.error('Error student unliking tutor', error);
+        });
+    } else {
+      console.log('Tutor rejected');
+      axios
+        .delete(`http://localhost:8080/tutor/unlike/${displayedUser.id}/${userID}`)
+        .catch((error) => {
+          console.error('Error tutor unliking student', error);
+        });
+    }
   };
 
   function handleChat(event: MouseEvent<HTMLButtonElement, MouseEvent>): void {
@@ -62,25 +78,31 @@ const DisplayedUserCard: React.FC<DisplayedUserCardProps> = ({ displayedUser, is
   };
 
   return (
-    <div className= "flex flex-col p-4 w-72 bg-indigo-100 rounded-lg shadow-lg h-48">
+    <div className= "flex flex-col p-4 w-72 bg-indigo-100 rounded-lg shadow-lg min-h-[208px]">
 
       <h2 className="my-1">{displayedUser.name}</h2>
       <p className="font-light">{displayedUser.age} y.o.</p>
       <p className="font-light">{displayedUser.subjects.join(', ')}</p>
       {!userIsTutor && <p className="font-light">Pricing: ${displayedUser.pricing}</p>}
-      <div className="mt-auto">
-        {isMatchCard ? (
-          <div className="flex justify-between">
-            <button className="px-4 py-2 flex items-center justify-center w-20 h-10 rounded-md shadow-md text-gray-700 bg-violet-200 hover:bg-violet-300" onClick={handleChat}>Chat</button>
-            <button className="px-4 py-2 flex items-center justify-center w-20 h-10 rounded-md shadow-md text-gray-700 bg-gray-200 hover:bg-gray-300" onClick={handleUnmatch}>Unmatch</button>
-          </div>
-        ) : (
-          <div className="flex justify-between">
-            <button className="px-4 py-2 flex items-center justify-center w-20 h-10 rounded-md shadow-md text-gray-700 bg-violet-200 hover:bg-violet-300" onClick={handleAccept}>Yes</button>
-            <button className="px-4 py-2 flex items-center justify-center w-20 h-10 rounded-md shadow-md text-gray-700 bg-violet-200 hover:bg-violet-300" onClick={handleReject}>No</button>
-          </div>
-        )}
-      </div>
+
+      {cardType == 'match' && (
+        <div className="flex justify-between mt-auto px-2">
+          <button className="px-4 w-20 h-10 rounded-md shadow-md text-gray-700 bg-violet-200 hover:bg-violet-300" onClick={handleChat}>Chat</button>
+          <button className="px-4 w-20 h-10 rounded-md shadow-md text-gray-700 bg-gray-200 hover:bg-gray-300" onClick={handleUnmatch}>Unmatch</button>
+        </div>
+      )}
+      {cardType == 'interested' && (
+        <div className="flex justify-between mt-auto px-2">
+          <button className="px-4 w-20 h-10 rounded-md shadow-md text-gray-700 bg-violet-200 hover:bg-violet-300" onClick={handleAccept}>Match</button>
+          <button className="px-4 w-20 h-10 rounded-md shadow-md text-gray-700 bg-gray-200 hover:bg-gray-300" onClick={handleReject}>Reject</button>
+        </div>
+      )}
+      {cardType == 'other' && (
+        <div className="flex justify-center mt-auto">
+          <button className="px-4 flex items-center justify-center w-20 h-10 rounded-md shadow-md text-gray-700 bg-violet-200 hover:bg-violet-300" onClick={handleAccept}>Yes</button>
+        </div>
+      )}
+
 
     </div>
   );

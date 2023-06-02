@@ -41,7 +41,7 @@ const DisplayTutor: React.FC = () => {
 
   return (
     <div>
-      <DisplayTutorSection header="Matched Students" displayedUsers={matchedUsers} isMatchCard={true}/>
+      <DisplayTutorSection header="Matched Students" displayedUsers={matchedUsers} cardType='match'/>
     </div>
   );
 };

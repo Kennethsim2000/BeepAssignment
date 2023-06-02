@@ -1,19 +1,19 @@
 import React from 'react';
-import DisplayedUserCard from './StudentCard';
+import DisplayedUserCard, { CardType } from './StudentCard';
 import {User} from './StudentCard';
 
 
 
 interface RowProps {
   displayedUserGroup: User[];
-  isMatchCard: boolean;
+  cardType: CardType;
 }
 
-const RowOfCards: React.FC<RowProps> = ({displayedUserGroup: displayedUserGroup, isMatchCard}) => {
+const RowOfCards: React.FC<RowProps> = ({displayedUserGroup: displayedUserGroup, cardType}) => {
   return (
       <div className="flex flex-wrap gap-4">
         {displayedUserGroup.map((displayedUser, index) => (
-          <DisplayedUserCard key={index} displayedUser={displayedUser} isMatchCard={isMatchCard} />
+          <DisplayedUserCard key={index} displayedUser={displayedUser} cardType={cardType} />
         ))}
       </div>
   );

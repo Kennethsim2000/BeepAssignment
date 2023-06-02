@@ -4,6 +4,9 @@ import DisplayTutorSection from '~/components/DisplayTutorSection';
 import { User } from '~/components/StudentCard';
 import NavBar from "~/components/Navbar";
 
+// export const userID = 12;
+// export const userIsTutor = true;
+
 export const userID = 15;
 export const userIsTutor = false;
 
@@ -25,8 +28,9 @@ const DisplayPage: React.FC = () => {
   const [otherStudents, setOtherStudents] = useState<User[]>([]);
 
   useEffect(() => {
+    console.log("fetching data");
     fetchAndSetData();
-  }, [interestedStudents, otherStudents]);
+  }, []);
 
   //function to load, fetch data from backend
   function fetchAndSetData() {
@@ -60,8 +64,8 @@ const DisplayPage: React.FC = () => {
 
   return (
     <div>
-      <DisplayTutorSection header={interestedHeader} displayedUsers={interestedStudents} isMatchCard={false} />
-      <DisplayTutorSection header={otherHeader} displayedUsers={otherStudents} isMatchCard={false}/>
+      <DisplayTutorSection header={interestedHeader} displayedUsers={interestedStudents} cardType="interested" />
+      <DisplayTutorSection header={otherHeader} displayedUsers={otherStudents} cardType="other"/>
     </div>
   );
 };
