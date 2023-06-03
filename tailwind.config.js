@@ -17,6 +17,16 @@ module.exports = {
         customIntro: "#62809A",
         studentButton: "#62809A",
         tutorButton: "#244667",
+
+        dirtwhite: "#F6F3EE",
+        lightbiege: "#EBDED4",
+        lightbrown: "#C2B19C",
+        coffeebrown: "#AB9685",
+        greybrown: "#94857B",
+        brown: "#8A6851",
+        mattebrown: "#7A5E59",
+        darkbrown: "#544541",
+
       },
     },
     fontFamily: {

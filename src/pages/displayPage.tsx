@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DisplayTutorSection from '~/components/DisplayTutorSection';
 import { User } from '~/components/StudentCard';
-import NavBar from "~/components/Navbar";
 
-// export const userID = 12;
-// export const userIsTutor = true;
+export const userID = 13;
+export const userIsTutor = true;
 
-export const userID = 15;
-export const userIsTutor = false;
+// export const userID = 15;
+// export const userIsTutor = false;
 
 export interface ResponseData {
   code: number;
@@ -34,6 +33,7 @@ const DisplayPage: React.FC = () => {
 
   //function to load, fetch data from backend
   function fetchAndSetData() {
+    console.log("FETCHING DATA");
     if (userIsTutor) {
       axios
         .get<ResponseData>(`http://localhost:8080/tutor/getStudentListsVo/${userID}`)
@@ -64,8 +64,8 @@ const DisplayPage: React.FC = () => {
 
   return (
     <div>
-      <DisplayTutorSection header={interestedHeader} displayedUsers={interestedStudents} cardType="interested" />
-      <DisplayTutorSection header={otherHeader} displayedUsers={otherStudents} cardType="other"/>
+      <DisplayTutorSection header={interestedHeader} displayedUsers={interestedStudents} cardType="interested" fetchFunction={fetchAndSetData}/>
+      <DisplayTutorSection header={otherHeader} displayedUsers={otherStudents} cardType="other" fetchFunction={fetchAndSetData}/>
     </div>
   );
 };

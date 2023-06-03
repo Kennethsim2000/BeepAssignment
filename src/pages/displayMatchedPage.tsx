@@ -13,9 +13,10 @@ const DisplayTutor: React.FC = () => {
 
   useEffect(() => {
     fetchAndSetData();
-  }, [matchedUsers]);
+  }, []);
 
   function fetchAndSetData() {
+    console.log("fetching matched data")
     if (userIsTutor) {
       axios
         .get<ResponseData>(`http://localhost:8080/tutor/getStudentListsVo/${userID}`)
