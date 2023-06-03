@@ -21,9 +21,9 @@ const NavBar: React.FC = () => {
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SwipeTutor</span>
           </a>
           <div className="flex items-center md:order-2">
-              <button type="button" className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" onClick={toggleDropdown} aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+              <button type="button" className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 ring-gray-500" id="user-menu-button" onClick={toggleDropdown} aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                 <span className="sr-only">Open user menu</span>
-                <img className="w-8 h-8 rounded-full" src="/snowy.png" alt="user photo"></img>
+                <img className="w-9 h-9 rounded-full" src="/snowy.png" alt="user photo"></img>
               </button>
               {/* <!-- Dropdown menu --> */}
               {isDropdownOpen && <div className="absolute top-10 right-5 z-50 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
