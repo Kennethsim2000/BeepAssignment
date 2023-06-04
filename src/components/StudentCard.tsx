@@ -21,37 +21,37 @@ interface DisplayedUserCardProps {
 }
 
 const DisplayedUserCard: React.FC<DisplayedUserCardProps> = ({ displayedUser, cardType, fetchFunction, openModalFunction }) => {
-  const handleAccept = () => {
+  const handleAccept = async () => {
     if (userIsTutor) {
       console.log('Student accepted');
-      axios
+      await axios
       .put(`http://localhost:8080/tutor/like/${userID}/${displayedUser.id}`)
       .catch((error) => {
         console.error('Error liking student', error);
       });
     } else {
       console.log('Tutor accepted');
-      axios
+      await axios
       .put(`http://localhost:8080/student/like/${userID}/${displayedUser.id}`)
       .catch((error) => {
         console.error('Error liking tutor', error);
       });
     }
-    openModalFunction(displayedUser);
-    fetchFunction();
+    if (cardType === 'interested') {openModalFunction(displayedUser);} // open modal if card is going from interested to matched
+    fetchFunction(); // async await to ensure axios request completes before fetching data
   };
 
-  const handleReject = () => {
+  const handleReject = async () => {
     if (userIsTutor) { // make student unlike tutor
       console.log('Student rejected');
-      axios
+      await axios
         .delete(`http://localhost:8080/student/unlike/${displayedUser.id}/${userID}`)
         .catch((error) => {
           console.error('Error student unliking tutor', error);
         });
     } else {
       console.log('Tutor rejected');
-      axios
+      await axios
         .delete(`http://localhost:8080/tutor/unlike/${displayedUser.id}/${userID}`)
         .catch((error) => {
           console.error('Error tutor unliking student', error);
@@ -64,22 +64,23 @@ const DisplayedUserCard: React.FC<DisplayedUserCardProps> = ({ displayedUser, ca
     throw new Error('Function not implemented.');
   }
 
-  const handleUnmatch = () => {
+  const handleUnmatch = async () => {
     if (userIsTutor) {
       console.log('Unmatching student');
-      axios
+      await axios
         .delete(`http://localhost:8080/tutor/unmatch/${userID}/${displayedUser.id}`)
         .catch((error) => {
           console.error('Error unmatching student', error);
         });
     } else {
       console.log('Unmatching tutor');
-      axios
+      await axios
       .delete(`http://localhost:8080/student/unmatch/${userID}/${displayedUser.id}`)
       .catch((error) => {
         console.error('Error unmatching tutor', error);
       });
     }
+    fetchFunction();
   };
 
   return (

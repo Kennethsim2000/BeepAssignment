@@ -35,13 +35,13 @@ const Modal: React.FC<ModalProps> = ({user, closeModalFunction}) => {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                  <p className="my-4 text-slate-500 text-lg leading-relaxed">
+                  <div className="my-4 text-slate-500 text-lg leading-relaxed">
                     <h2 className="my-1">{user?.name}</h2>
                     <p className="font-light">{user?.age} y.o.</p>
                     <p className="font-light">{user?.subjects.join(', ')}</p>
                     {!userIsTutor && <p className="font-light">${user?.pricing} /hr</p>}
                     <p className="font-light">Chat with {user?.name} now!</p>
-                  </p>
+                  </div>
                 </div>
                 {/*footer*/}
                 <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
