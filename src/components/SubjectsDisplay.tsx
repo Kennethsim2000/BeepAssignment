@@ -24,8 +24,8 @@ const SubjectsDisplay: React.FC<SubjectsDisplayProps> = ({
     }
   };
   return (
-    <div className="w-full md:w-2/3 px-4">
-      <h3 className="mb-4 text-xl font-bold text-gray-700">{title}</h3>
+    <div className="w-full md:w-2/3 px-4 mt-4">
+      <h3 className="mb-2 text-xl font-bold text-gray-700">{title}</h3>
       <ul className="grid grid-cols-4 gap-2 md:gap-4 text-sm font-medium text-gray-900">
         {subjects.map((subject, index) => (
           <li
