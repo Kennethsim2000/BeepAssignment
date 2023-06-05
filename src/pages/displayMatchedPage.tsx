@@ -13,9 +13,10 @@ const DisplayTutor: React.FC = () => {
 
   useEffect(() => {
     fetchAndSetData();
-  }, [matchedUsers]);
+  }, []);
 
   function fetchAndSetData() {
+    console.log("fetching matched data")
     if (userIsTutor) {
       axios
         .get<ResponseData>(`http://localhost:8080/tutor/getStudentListsVo/${userID}`)
@@ -41,7 +42,7 @@ const DisplayTutor: React.FC = () => {
 
   return (
     <div>
-      <DisplayTutorSection header="Matched Students" displayedUsers={matchedUsers} isMatchCard={true}/>
+      <DisplayTutorSection header="Matched Students" displayedUsers={matchedUsers} cardType='match' fetchFunction={fetchAndSetData}/>
     </div>
   );
 };

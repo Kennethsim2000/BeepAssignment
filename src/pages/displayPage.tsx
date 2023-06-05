@@ -3,7 +3,10 @@ import axios from "axios";
 import DisplayTutorSection from '~/components/DisplayTutorSection';
 import { User } from '~/components/StudentCard';
 
-export const userID = 15;
+// export const userID = 13;
+// export const userIsTutor = true;
+
+export const userID = 16;
 export const userIsTutor = false;
 
 export interface ResponseData {
@@ -24,15 +27,18 @@ const DisplayPage: React.FC = () => {
   const [otherStudents, setOtherStudents] = useState<User[]>([]);
 
   useEffect(() => {
+    console.log("fetching data");
     fetchAndSetData();
-  }, [interestedStudents, otherStudents]);
+  }, []);
 
   //function to load, fetch data from backend
   function fetchAndSetData() {
+    console.log("FETCHING DATA");
     if (userIsTutor) {
       axios
         .get<ResponseData>(`http://localhost:8080/tutor/getStudentListsVo/${userID}`)
         .then((response) => {
+          // console.log(response.data.data);
           const { interestedUsers: interestedStudents, otherUsers: otherStudents } = response.data.data;
           setInterestedStudents(interestedStudents);
           setOtherStudents(otherStudents);
@@ -44,6 +50,7 @@ const DisplayPage: React.FC = () => {
       axios
         .get<ResponseData>(`http://localhost:8080/student/getTutorListsVo/${userID}`)
         .then((response) => {
+          // console.log(response.data.data);
           const { interestedUsers: interestedStudents, otherUsers: otherStudents } = response.data.data;
           setInterestedStudents(interestedStudents);
           setOtherStudents(otherStudents);
@@ -59,8 +66,8 @@ const DisplayPage: React.FC = () => {
 
   return (
     <div>
-      <DisplayTutorSection header={interestedHeader} displayedUsers={interestedStudents} isMatchCard={false} />
-      <DisplayTutorSection header={otherHeader} displayedUsers={otherStudents} isMatchCard={false}/>
+      <DisplayTutorSection header={interestedHeader} displayedUsers={interestedStudents} cardType="interested" fetchFunction={fetchAndSetData}/>
+      <DisplayTutorSection header={otherHeader} displayedUsers={otherStudents} cardType="other" fetchFunction={fetchAndSetData}/>
     </div>
   );
 };
