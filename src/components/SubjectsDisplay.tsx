@@ -3,6 +3,8 @@ import React, { useState } from "react";
 interface SubjectsDisplayProps {
   title: string;
   subjects: string[];
+  selectedSubjects: string[];
+  setSelectedSubjects: (value: string[]) => void;
 }
 
 const SubjectsDisplay: React.FC<SubjectsDisplayProps> = ({
@@ -13,11 +15,13 @@ const SubjectsDisplay: React.FC<SubjectsDisplayProps> = ({
 
   const handleSubjectClick = (subject: string) => {
     if (selectedSubjects.includes(subject)) {
+      //remove the subject from the list
       setSelectedSubjects((prevSelectedSubjects) =>
         prevSelectedSubjects.filter((s) => s !== subject)
       );
     } else {
       setSelectedSubjects((prevSelectedSubjects) => [
+        //add the subject to the list
         ...prevSelectedSubjects,
         subject,
       ]);

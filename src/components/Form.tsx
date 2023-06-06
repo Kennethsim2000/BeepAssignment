@@ -2,60 +2,68 @@ import axios from "axios";
 import { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 
-const Form: React.FC = () => {
-  const [name, setName] = useState<string>("");
-  // const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [dob, setDOB] = useState<string>("");
-  const [selectedSubjects, setSelectedSubjects] = useState<string[]>([]);
-  const [pricing, setPricing] = useState<number>(0);
-  const subjectOptions = ["English", "Math", "Chinese", "Science"];
+interface FormDisplayProps {
+  name: string;
+  password: string;
+  email: string;
+  dob: string;
+  number: number;
+  setName: (name: string) => void;
+  setPassword: (password: string) => void;
+  setEmail: (email: string) => void;
+  setDOB: (dob: string) => void;
+  setNumber: (number: number) => void;
+  setTutorDone: (ready: boolean) => void;
+}
+const Form: React.FC<FormDisplayProps> = ({
+  name,
+  password,
+  email,
+  dob,
+  number,
+  setName,
+  setPassword,
+  setEmail,
+  setDOB,
+  setNumber,
+  setTutorDone,
+}) => {
   const [isStudent, setIsStudent] = useState<Boolean>(false);
-
-  const handleSubjectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedSubject = event.target.value;
-    if (!selectedSubjects.includes(selectedSubject)) {
-      setSelectedSubjects([...selectedSubjects, selectedSubject]);
-    }
-  };
-
-  const handleRemoveSubject = (subject: string) => {
-    setSelectedSubjects(selectedSubjects.filter((item) => item !== subject));
-  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const subjectList: Array<string> = new Array<string>(...selectedSubjects);
 
     const formData = {
       name: name,
       password: password,
       age: new Date(dob),
-      subjects: subjectList,
-      pricing: isStudent ? 0 : pricing,
     };
 
     console.log(formData);
     if (isStudent) {
-      try {
-        const response = await axios.post(
-          "http://localhost:8080/student/add",
-          formData
-        );
-        console.log(response.data); // Handle the response as needed
-      } catch (error) {
-        console.error(error);
-      }
+      // try {
+      //   const response = await axios.post(
+      //     "http://localhost:8080/student/add",
+      //     formData
+      //   );
+      //   console.log(response.data); // Handle the response as needed
+      //   if (response.data.code == 200) {
+      //     window.alert("Added students successfully");
+      //   }
+      // } catch (error) {
+      //   console.error(error);
+      // }
     } else {
-      try {
-        const response = await axios.post(
-          "http://localhost:8080/tutor/add",
-          formData
-        );
-        console.log(response.data); // Handle the response as needed
-      } catch (error) {
-        console.error(error);
-      }
+      setTutorDone(true);
+      // try {
+      //   const response = await axios.post(
+      //     "http://localhost:8080/tutor/add",
+      //     formData
+      //   );
+      //   console.log(response.data); // Handle the response as needed
+      // } catch (error) {
+      //   console.error(error);
+      // }
     }
   };
 
@@ -100,6 +108,16 @@ const Form: React.FC = () => {
           />
         </div>
         <div className="mb-2">
+          <label className="block text-gray-700 font-bold mb-2">Email:</label>
+          <input
+            type="text"
+            id="name"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full border rounded py-1.5 px-3 border-gray-400 focus:outline-none focus:border-blue-500"
+          />
+        </div>
+        <div className="mb-2">
           <label className="block text-gray-700 font-bold mb-2">
             Password:
           </label>
@@ -130,21 +148,21 @@ const Form: React.FC = () => {
               htmlFor="pricing"
               className="block text-gray-700 font-bold mb-2"
             >
-              Pricing:
+              Contact Number:
             </label>
             <input
               type="text"
               id="pricing"
-              value={pricing}
+              value={number}
               onChange={(e) =>
-                setPricing(e.target.value === "" ? 0 : parseInt(e.target.value))
+                setNumber(e.target.value === "" ? 0 : parseInt(e.target.value))
               }
               className="w-full  border rounded py-2 px-3 border-gray-400 focus:outline-none focus:border-blue-500"
             />
           </div>
         </div>
 
-        <div className="mb-2">
+        {/* <div className="mb-2">
           <label
             htmlFor="pricing"
             className="block text-gray-700 font-bold mb-2"
@@ -182,7 +200,7 @@ const Form: React.FC = () => {
               </ul>
             </div>
           )}
-        </div>
+        </div> */}
       </div>
 
       <button
