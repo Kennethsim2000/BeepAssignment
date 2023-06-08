@@ -3,11 +3,13 @@ import axios from "axios";
 import { NextPage } from "next";
 import Form from "../components/Form";
 import Intro from "~/components/Intro";
-import Register2 from "~/components/Register2";
+import RegisterTutor from "~/components/RegisterTutor";
 
 const Register: NextPage = () => {
   const [name, setName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [school, setSchool] = useState<string>("");
+  const [gender, setGender] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [dob, setDOB] = useState<string>("");
   const [number, setNumber] = useState<number>(0);
@@ -24,19 +26,30 @@ const Register: NextPage = () => {
             email={email}
             dob={dob}
             number={number}
+            school={school}
+            gender={gender}
             setName={setName}
             setPassword={setPassword}
             setEmail={setEmail}
+            setGender={setGender}
             setDOB={setDOB}
             setNumber={setNumber}
             setTutorDone={setTutorDone}
+            setSchool={setSchool}
           />
         </div>
       )}
 
       {tutorDone && (
         <div className="w-full flex items-center justify-center">
-          <Register2 />
+          <RegisterTutor
+            name={name}
+            password={password}
+            email={email}
+            dob={dob}
+            number={number}
+            gender={gender}
+          />
         </div>
       )}
     </div>

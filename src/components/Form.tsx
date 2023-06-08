@@ -2,31 +2,39 @@ import axios from "axios";
 import { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 
-interface FormDisplayProps {
+interface FormProps {
   name: string;
   password: string;
   email: string;
   dob: string;
   number: number;
+  school: string;
+  gender: string;
   setName: (name: string) => void;
   setPassword: (password: string) => void;
   setEmail: (email: string) => void;
+  setGender: (email: string) => void;
+  setSchool: (school: string) => void;
   setDOB: (dob: string) => void;
   setNumber: (number: number) => void;
   setTutorDone: (ready: boolean) => void;
 }
-const Form: React.FC<FormDisplayProps> = ({
+const Form: React.FC<FormProps> = ({
   name,
   password,
   email,
   dob,
   number,
+  school,
+  gender,
   setName,
   setPassword,
   setEmail,
   setDOB,
   setNumber,
   setTutorDone,
+  setSchool,
+  setGender,
 }) => {
   const [isStudent, setIsStudent] = useState<Boolean>(false);
 
@@ -67,13 +75,17 @@ const Form: React.FC<FormDisplayProps> = ({
     }
   };
 
+  const handleGenderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setGender(event.target.value);
+  };
+
   return (
     <form
       onSubmit={handleSubmit}
       className="bg-customForm shadow-md rounded px-6 py-5 md:h-120 md:w-96"
     >
       <div className="flex flex-col justify-center items-center">
-        <p className="text-gray-700 font-semibold text-lg">I am a ...</p>
+        <p className="text-gray-700 font-medium text-lg">I am a ...</p>
         <div className="flex gap-0">
           <button
             type="button"
@@ -131,18 +143,42 @@ const Form: React.FC<FormDisplayProps> = ({
         </div>
 
         <div className="flex gap-2">
-          <div className="mb-2">
-            <label htmlFor="dob" className="block text-gray-700 font-bold mb-2">
-              Date of Birth:
-            </label>
-            <input
-              type="date"
-              id="dob"
-              value={dob}
-              onChange={(e) => setDOB(e.target.value)}
-              className="w-full border rounded py-1.5 px-3 border-gray-400 focus:outline-none focus:border-blue-500"
-            />
-          </div>
+          {isStudent ? (
+            <div className="mb-4">
+              <label
+                htmlFor="school"
+                className="block text-gray-700 font-bold mb-2"
+              >
+                School:
+              </label>
+              <select
+                id="school"
+                value={school}
+                onChange={(e) => setSchool(e.target.value)}
+                className="w-full border rounded py-1.5 px-3 border-gray-400 focus:outline-none focus:border-blue-500 h-10"
+              >
+                <option value="junior college">Junior College</option>
+                <option value="primary school">Primary School</option>
+                <option value="secondary school">Secondary School</option>
+              </select>
+            </div>
+          ) : (
+            <div className="mb-4">
+              <label
+                htmlFor="dob"
+                className="block text-gray-700 font-bold mb-2"
+              >
+                Date of Birth:
+              </label>
+              <input
+                type="date"
+                id="dob"
+                value={dob}
+                onChange={(e) => setDOB(e.target.value)}
+                className="w-full border rounded py-1.5 px-3 border-gray-400 focus:outline-none focus:border-blue-500 h-10"
+              />
+            </div>
+          )}
           <div className="mb-4">
             <label
               htmlFor="pricing"
@@ -157,12 +193,56 @@ const Form: React.FC<FormDisplayProps> = ({
               onChange={(e) =>
                 setNumber(e.target.value === "" ? 0 : parseInt(e.target.value))
               }
-              className="w-full  border rounded py-2 px-3 border-gray-400 focus:outline-none focus:border-blue-500"
+              className="w-full  border rounded py-2 px-3 border-gray-400 focus:outline-none focus:border-blue-500 h-10"
             />
           </div>
         </div>
+        <div className="mb-2">
+          <label
+            htmlFor="gender"
+            className="block text-gray-700 font-bold mb-2 "
+          >
+            Gender
+          </label>
+          <input
+            type="radio"
+            id="male"
+            value="male"
+            checked={gender === "male"}
+            onChange={handleGenderChange}
+            className="mr-1"
+          />
+          <label htmlFor="male" className="mr-2 font-medium">
+            Male
+          </label>
+          <input
+            type="radio"
+            id="female"
+            value="female"
+            checked={gender === "female"}
+            onChange={handleGenderChange}
+            className="mr-1"
+          />
+          <label htmlFor="female" className="font-medium">
+            Female
+          </label>
+        </div>
+      </div>
 
-        {/* <div className="mb-2">
+      <button
+        type="submit"
+        className="bg-customIntro hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >
+        Register
+      </button>
+    </form>
+  );
+};
+
+export default Form;
+
+{
+  /* <div className="mb-2">
           <label
             htmlFor="pricing"
             className="block text-gray-700 font-bold mb-2"
@@ -200,17 +280,5 @@ const Form: React.FC<FormDisplayProps> = ({
               </ul>
             </div>
           )}
-        </div> */}
-      </div>
-
-      <button
-        type="submit"
-        className="bg-customIntro hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-      >
-        Register
-      </button>
-    </form>
-  );
-};
-
-export default Form;
+        </div> */
+}

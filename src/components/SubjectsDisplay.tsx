@@ -10,22 +10,20 @@ interface SubjectsDisplayProps {
 const SubjectsDisplay: React.FC<SubjectsDisplayProps> = ({
   title,
   subjects,
+  selectedSubjects,
+  setSelectedSubjects,
 }) => {
-  const [selectedSubjects, setSelectedSubjects] = useState<string[]>([]);
-
   const handleSubjectClick = (subject: string) => {
     if (selectedSubjects.includes(subject)) {
-      //remove the subject from the list
-      setSelectedSubjects((prevSelectedSubjects) =>
-        prevSelectedSubjects.filter((s) => s !== subject)
-      );
+      setSelectedSubjects(selectedSubjects.filter((s) => s !== subject));
     } else {
-      setSelectedSubjects((prevSelectedSubjects) => [
-        //add the subject to the list
-        ...prevSelectedSubjects,
-        subject,
-      ]);
+      setSelectedSubjects([...selectedSubjects, subject]);
     }
+  };
+
+  const retrieveSubject = (subject: string) => {
+    const arr = subject.split("-");
+    return arr[1];
   };
   return (
     <div className="w-full md:w-2/3 px-4 mt-4">
@@ -43,7 +41,7 @@ const SubjectsDisplay: React.FC<SubjectsDisplayProps> = ({
           >
             <div className="flex items-center justify-center py-2 space-x-2">
               <div className="text-sm font-medium items-center justify-center">
-                {subject}
+                {retrieveSubject(subject)}
               </div>
             </div>
           </li>
