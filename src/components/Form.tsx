@@ -18,6 +18,7 @@ interface FormProps {
   setDOB: (dob: string) => void;
   setNumber: (number: number) => void;
   setTutorDone: (ready: boolean) => void;
+  setStudentDone: (ready: boolean) => void;
 }
 const Form: React.FC<FormProps> = ({
   name,
@@ -33,6 +34,7 @@ const Form: React.FC<FormProps> = ({
   setDOB,
   setNumber,
   setTutorDone,
+  setStudentDone,
   setSchool,
   setGender,
 }) => {
@@ -49,18 +51,7 @@ const Form: React.FC<FormProps> = ({
 
     console.log(formData);
     if (isStudent) {
-      // try {
-      //   const response = await axios.post(
-      //     "http://localhost:8080/student/add",
-      //     formData
-      //   );
-      //   console.log(response.data); // Handle the response as needed
-      //   if (response.data.code == 200) {
-      //     window.alert("Added students successfully");
-      //   }
-      // } catch (error) {
-      //   console.error(error);
-      // }
+      setStudentDone(true);
     } else {
       setTutorDone(true);
       // try {
@@ -242,43 +233,4 @@ const Form: React.FC<FormProps> = ({
 export default Form;
 
 {
-  /* <div className="mb-2">
-          <label
-            htmlFor="pricing"
-            className="block text-gray-700 font-bold mb-2"
-          >
-            Subjects: (Can select more than one)
-          </label>
-          <select
-            value=""
-            onChange={handleSubjectChange}
-            className="w-full border rounded py-1.5 px-3 border-gray-400 focus:outline-none focus:border-blue-500 w-full"
-          >
-            <option value="">Select a subject</option>
-            {subjectOptions.map((subject) => (
-              <option key={subject} value={subject}>
-                {subject}
-              </option>
-            ))}
-          </select>
-          {selectedSubjects.length > 0 && (
-            <div className="flex flex-row w-full ">
-              <ul className="flex flex-wrap p-2">
-                {selectedSubjects.map((subject, index) => (
-                  <li
-                    key={index}
-                    className="flex items-center py-1 px-2 border-b border-gray-300 rounded-lg bg-gray-200 m-1"
-                    style={{ fontSize: "0.8rem" }}
-                  >
-                    <span>{subject}</span>
-                    <RxCross1
-                      className="ml-2 cursor-pointer hover:text-red-500 focus:outline-none"
-                      onClick={() => handleRemoveSubject(subject)}
-                    />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div> */
 }
