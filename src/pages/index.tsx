@@ -1,37 +1,9 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import axios from "axios";
-import { useState } from "react";
-import { useRouter } from "next/router";
+import { RiAdminFill } from "react-icons/ri";
+import Job from "~/components/Job";
 
 const Home: NextPage = () => {
-  const router = useRouter();
-  const [formData, setFormData] = useState({ name: "", password: "" });
-  const [error, setError] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post("http://localhost:8080/user/login", {
-        name: formData.name,
-        password: formData.password,
-      });
-      if (response.data.code == 200) {
-        router.push("/user?token=" + response.data.data.token);
-      } else {
-        setError(true);
-      }
-      console.log(response.data); // Handle the response data accordingly
-    } catch (error) {
-      console.error(error);
-      // Handle the error
-    }
-  };
   return (
     <>
       <Head>
@@ -40,54 +12,56 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className="flex justify-center items-center h-screen">
-          <form
-            className="p-8 bg-gray-100 rounded shadow-md"
-            onSubmit={handleSubmit}
-          >
-            <div className="mb-4">
-              <label className="block mb-2 text-lg font-medium" htmlFor="name">
-                Name:
-              </label>
-              <input
-                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label
-                className="block mb-2 text-lg font-medium"
-                htmlFor="password"
-              >
-                Password:
-              </label>
-              <input
-                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-                type="password"
-                id="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <button
-              className="w-full py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"
-              type="submit"
-            >
-              Login
-            </button>
-            {error && (
-              <p className="text-red-500 mt-2">
-                Error logging in. Please try again.
-              </p>
-            )}
-          </form>
+        <div className="flex flex-row min-h-screen h-full w-full bg-zinc-300">
+          <div className=" flex-1 flex flex-col h-full ">
+            <Job
+              companyUrl={"/images/Govtech.png"}
+              companyName="GovTech"
+              rating="4"
+              title="Technical Product Manager"
+              role="Cloud"
+              time="less than a minute ago"
+              focusArea="PM"
+              skills={["play", "IAM"]}
+            />
+            <Job
+              companyUrl={"/images/Govtech.png"}
+              companyName="Coupang"
+              rating="3.9"
+              title="Staff, Back-end Engineer"
+              role="COupang Play"
+              time="37 minutes ago"
+              focusArea="Backend"
+              skills={["Rest API", "API", "play", "Modular", "Node.js"]}
+            />
+            <Job
+              companyUrl={"/images/Govtech.png"}
+              companyName="Embed"
+              rating="3.5"
+              title="Senior Software Engineer"
+              role=".Net"
+              time="about 1 hour ago"
+              focusArea="Fullstack"
+              skills={["Rest API", "Docker", "API", "TDD", "JavaScript"]}
+            />
+            <Job
+              companyUrl={"/images/Govtech.png"}
+              companyName="Circles.Life"
+              rating="3"
+              title="Principal Engineer"
+              role="Cloud"
+              time="less than a minute ago"
+              focusArea="pm"
+              skills={["play", "IAM"]}
+            />
+          </div>
+          <div className="bg-white md:block flex-1 m-3 hidden">
+            <h1>JOB TITLE</h1>
+            <p>
+              to narrow the scope of the task, you do not need to build the UI
+              of this right panel
+            </p>
+          </div>
         </div>
       </main>
     </>
