@@ -26,11 +26,11 @@ const Job: React.FC<JobProps> = ({
   skills,
 }) => {
   return (
-    <div className="mt-2 flex-col items-center border-green-400 border-solid border-2 bg-white p-6 hover:cursor-pointer hover:bg-blue-100">
+    <div className="flex-col items-center  bg-white p-6 hover:cursor-pointer hover:bg-blue-100 h-full w-full">
       <div className="flex flex-row justify-between w-full">
         {/* left section */}
         <div>
-          <Image src={companyUrl} width={50} height={50} alt="govtech" />
+          <Image src={companyUrl} width={70} height={70} alt="govtech" />
         </div>
         {/* middle section */}
         <div className="flex flex-col md:ml-4 ml-2">

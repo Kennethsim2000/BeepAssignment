@@ -1,9 +1,14 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import { RiAdminFill } from "react-icons/ri";
+import { useState } from "react";
 import Job from "~/components/Job";
 
 const Home: NextPage = () => {
+  const [selectedJob, setSelectedJob] = useState<string>("");
+
+  const handleJobClick = (job: string) => {
+    setSelectedJob(job);
+  };
   return (
     <>
       <Head>
@@ -12,55 +17,90 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className="flex flex-row min-h-screen h-full w-full bg-zinc-300">
-          <div className=" flex-1 flex flex-col h-full ">
-            <Job
-              companyUrl={"/images/Govtech.png"}
-              companyName="GovTech"
-              rating="4"
-              title="Technical Product Manager"
-              role="Cloud"
-              time="less than a minute ago"
-              focusArea="PM"
-              skills={["play", "IAM"]}
-            />
-            <Job
-              companyUrl={"/images/Govtech.png"}
-              companyName="Coupang"
-              rating="3.9"
-              title="Staff, Back-end Engineer"
-              role="COupang Play"
-              time="37 minutes ago"
-              focusArea="Backend"
-              skills={["Rest API", "API", "play", "Modular", "Node.js"]}
-            />
-            <Job
-              companyUrl={"/images/Govtech.png"}
-              companyName="Embed"
-              rating="3.5"
-              title="Senior Software Engineer"
-              role=".Net"
-              time="about 1 hour ago"
-              focusArea="Fullstack"
-              skills={["Rest API", "Docker", "API", "TDD", "JavaScript"]}
-            />
-            <Job
-              companyUrl={"/images/Govtech.png"}
-              companyName="Circles.Life"
-              rating="3"
-              title="Principal Engineer"
-              role="Cloud"
-              time="less than a minute ago"
-              focusArea="pm"
-              skills={["play", "IAM"]}
-            />
+        <div className="flex flex-row min-h-screen w-full bg-zinc-300">
+          <div className=" flex-1 flex flex-col h-full justify-between m-3 p-0">
+            <div
+              className={`h-full  ${
+                selectedJob === "Technical Product Manager(Cloud)"
+                  ? "border-green-400 border-solid border-2 "
+                  : ""
+              }`}
+              onClick={() => handleJobClick("Technical Product Manager(Cloud)")}
+            >
+              <Job
+                companyUrl={"/images/Govtech.png"}
+                companyName="GovTech"
+                rating="4"
+                title="Technical Product Manager"
+                role="Cloud"
+                time="less than a minute ago"
+                focusArea="PM"
+                skills={["play", "IAM"]}
+              />
+            </div>
+            <div
+              className={`mt-3 h-full  ${
+                selectedJob === "Staff, Back-end Engineer(Coupang Play)"
+                  ? "border-green-400 border-solid border-2 "
+                  : ""
+              }`}
+              onClick={() =>
+                handleJobClick("Staff, Back-end Engineer(Coupang Play)")
+              }
+            >
+              <Job
+                companyUrl={"/images/Coupang.jpg"}
+                companyName="Coupang"
+                rating="3.9"
+                title="Staff, Back-end Engineer"
+                role="Coupang Play"
+                time="37 minutes ago"
+                focusArea="Backend"
+                skills={["Rest API", "API", "play", "Modular", "Node.js"]}
+              />
+            </div>
+            <div
+              className={`mt-3 h-full  ${
+                selectedJob === "Senior Software Engineer(.Net)"
+                  ? "border-green-400 border-solid border-2 "
+                  : ""
+              }`}
+              onClick={() => handleJobClick("Senior Software Engineer(.Net)")}
+            >
+              <Job
+                companyUrl={"/images/Embed.png"}
+                companyName="Embed"
+                rating="3.5"
+                title="Senior Software Engineer"
+                role=".Net"
+                time="about 1 hour ago"
+                focusArea="Fullstack"
+                skills={["Rest API", "Docker", "API", "TDD", "JavaScript"]}
+              />
+            </div>
+            <div
+              className={`mt-3 h-full  ${
+                selectedJob === "Principal Engineer(Cloud)"
+                  ? "border-green-400 border-solid border-2 "
+                  : ""
+              }`}
+              onClick={() => handleJobClick("Principal Engineer(Cloud)")}
+            >
+              <Job
+                companyUrl={"/images/Circles.png"}
+                companyName="Circles.Life"
+                rating="3"
+                title="Principal Engineer"
+                role="Cloud"
+                time="less than a minute ago"
+                focusArea="PM"
+                skills={["play", "IAM"]}
+              />
+            </div>
           </div>
-          <div className="bg-white md:block flex-1 m-3 hidden">
-            <h1>JOB TITLE</h1>
-            <p>
-              to narrow the scope of the task, you do not need to build the UI
-              of this right panel
-            </p>
+          <div className="bg-white md:block flex-1 m-3 hidden ">
+            <h1 className="font-bold text-4xl">Job is</h1>
+            <h1 className="font-bold text-4xl">{selectedJob}</h1>
           </div>
         </div>
       </main>
