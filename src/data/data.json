@@ -1,0 +1,747 @@
+[
+  {
+    "name": "Afghan Afghani",
+    "code": "AFN",
+    "countryCode": "AF"
+  },
+  {
+    "name": "Albanian Lek",
+    "code": "ALL",  
+    "countryCode": "AL"
+  },
+  {
+    "name": "Algerian Dinar",
+    "code": "DZD",
+    "countryCode": "DZ"
+  },
+  {
+    "name": "Angolan Kwanza",
+    "code": "AOA",
+    "countryCode": "AO"
+  },
+  {
+    "name": "Argentine Peso",
+    "code": "ARS",
+    "countryCode": "AR"
+  },
+  {
+    "name": "Armenian Dram",
+    "code": "AMD",
+    "countryCode": "AM"
+  },
+  {
+    "name": "Aruban Florin",
+    "code": "AWG",
+    "countryCode": "AW"
+  },
+  {
+    "name": "Australian Dollar",
+    "code": "AUD",
+    "countryCode": "AU" 
+  },
+  {
+    "name": "Azerbaijani Manat",
+    "code": "AZN",
+    "countryCode": "AZ"
+  },
+  {
+    "name": "Bahamian Dollar",
+    "code": "BSD",
+    "countryCode": "BS"
+  },  
+  {
+    "name": "Bahraini Dinar",
+    "code": "BHD",
+    "countryCode": "BH"
+  },
+  {
+    "name": "Bangladeshi Taka", 
+    "code": "BDT",
+    "countryCode": "BD"
+  },
+  {
+    "name": "Barbadian Dollar",
+    "code": "BBD",
+    "countryCode": "BB"
+  },
+  {
+    "name": "Belarusian Ruble",
+    "code": "BYN",
+    "countryCode": "BY"
+  },
+  {
+    "name": "Belize Dollar",
+    "code": "BZD",
+    "countryCode": "BZ"
+  },
+  {
+    "name": "Bermudan Dollar",
+    "code": "BMD",
+    "countryCode": "BM"
+  },
+  {
+    "name": "Bhutanese Ngultrum",
+    "code": "BTN",
+    "countryCode": "BT"
+  },
+  {
+    "name": "Bolivian Boliviano",
+    "code": "BOB",
+    "countryCode": "BO"
+  },
+  {
+    "name": "Bosnia-Herzegovina Convertible Mark",
+    "code": "BAM",
+    "countryCode": "BA"
+  },
+  {
+    "name": "Botswanan Pula",
+    "code": "BWP",
+    "countryCode": "BW"
+  },
+  {
+    "name": "Brazilian Real",
+    "code": "BRL",
+    "countryCode": "BR"
+  },
+  {
+    "name": "British Pound Sterling",
+    "code": "GBP",
+    "countryCode": "GB"
+  },
+  {
+    "name": "Brunei Dollar", 
+    "code": "BND",
+    "countryCode": "BN"
+  },
+  {
+    "name": "Bulgarian Lev",
+    "code": "BGN",
+    "countryCode": "BG"
+  },
+  {
+    "name": "Burundian Franc",
+    "code": "BIF",
+    "countryCode": "BI"
+  },
+  {
+    "name": "Cambodian Riel",
+    "code": "KHR",
+    "countryCode": "KH"
+  },
+  {
+    "name": "Canadian Dollar",
+    "code": "CAD",
+    "countryCode": "CA"
+  },
+  {
+    "name": "Cape Verdean Escudo",
+    "code": "CVE",
+    "countryCode": "CV"
+  },
+  {
+    "name": "Cayman Islands Dollar",
+    "code": "KYD",
+    "countryCode": "KY"
+  },
+  {
+    "name": "Central African CFA Franc",
+    "code": "XAF",
+    "countryCode": "CM"  
+  },
+  {
+    "name": "Chilean Peso",
+    "code": "CLP",
+    "countryCode": "CL"
+  },
+  {
+    "name": "Chinese Yuan Renminbi",
+    "code": "CNY",
+    "countryCode": "CN"
+  },
+  {
+    "name": "Colombian Peso",
+    "code": "COP",
+    "countryCode": "CO"
+  },
+{
+    "name": "Comorian Franc",
+    "code": "KMF",
+    "countryCode": "KM"
+  },
+  {
+    "name": "Congolese Franc",
+    "code": "CDF",
+    "countryCode": "CD"
+  },
+  {
+    "name": "Costa Rican Colón",
+    "code": "CRC",
+    "countryCode": "CR"
+  },
+  {
+    "name": "Croatian Kuna",
+    "code": "HRK",
+    "countryCode": "HR"
+  },
+  {
+    "name": "Cuban Convertible Peso",
+    "code": "CUC",
+    "countryCode": "CU"
+  },
+  {
+    "name": "Cuban Peso",
+    "code": "CUP",
+    "countryCode": "CU"
+  },
+  {
+    "name": "Czech Koruna",
+    "code": "CZK", 
+    "countryCode": "CZ"
+  },
+  {
+    "name": "Danish Krone",
+    "code": "DKK",
+    "countryCode": "DK"
+  },
+  {
+    "name": "Djiboutian Franc",
+    "code": "DJF",
+    "countryCode": "DJ"
+  },
+  {
+    "name": "Dominican Peso",
+    "code": "DOP",
+    "countryCode": "DO"
+  },
+  {
+    "name": "East Caribbean Dollar",
+    "code": "XCD",
+    "countryCode": "AG"
+  },
+  {
+    "name": "Egyptian Pound",
+    "code": "EGP",
+    "countryCode": "EG"
+  },
+  {
+    "name": "Eritrean Nakfa",
+    "code": "ERN",
+    "countryCode": "ER"
+  },
+  {
+    "name": "Estonian Kroon",
+    "code": "EEK",
+    "countryCode": "EE"
+  },
+  {
+    "name": "Ethiopian Birr",
+    "code": "ETB",
+    "countryCode": "ET"
+  },
+  {
+    "name": "Euro",
+    "code": "EUR",
+    "countryCode": "EU"
+  },
+  {
+    "name": "Fijian Dollar",
+    "code": "FJD",
+    "countryCode": "FJ"
+  },
+  {
+    "name": "Gambian Dalasi",
+    "code": "GMD",
+    "countryCode": "GM"
+  },
+  {
+    "name": "Georgian Lari",
+    "code": "GEL",
+    "countryCode": "GE"
+  },
+  {
+    "name": "Ghanaian Cedi",
+    "code": "GHS",
+    "countryCode": "GH"
+  },
+  {
+    "name": "Guatemalan Quetzal",
+    "code": "GTQ",
+    "countryCode": "GT"
+  },
+  {
+    "name": "Haitian Gourde",
+    "code": "HTG",
+    "countryCode": "HT"
+  },
+  {
+    "name": "Honduran Lempira",
+    "code": "HNL",
+    "countryCode": "HN"
+  },
+  {
+    "name": "Hong Kong Dollar",
+    "code": "HKD",
+    "countryCode": "HK"
+  },
+  {
+    "name": "Hungarian Forint",
+    "code": "HUF",
+    "countryCode": "HU"
+  },
+  {
+    "name": "Icelandic Króna",
+    "code": "ISK",
+    "countryCode": "IS"
+  },
+  {
+    "name": "Indian Rupee",
+    "code": "INR",
+    "countryCode": "IN"
+  },
+  {
+    "name": "Indonesian Rupiah",
+    "code": "IDR",
+    "countryCode": "ID"
+  },
+  {
+    "name": "Iranian Rial",
+    "code": "IRR",
+    "countryCode": "IR"
+  },
+  {
+    "name": "Iraqi Dinar",
+    "code": "IQD",
+    "countryCode": "IQ"
+  },
+  {
+    "name": "Israeli New Shekel",
+    "code": "ILS",
+    "countryCode": "IL"
+  },
+  {
+    "name": "Jamaican Dollar",
+    "code": "JMD",
+    "countryCode": "JM"
+  },
+  {
+    "name": "Japanese Yen",
+    "code": "JPY",
+    "countryCode": "JP"
+  },
+  {
+    "name": "Jordanian Dinar",
+    "code": "JOD",
+    "countryCode": "JO"
+  },
+{
+    "name": "Kazakhstani Tenge",
+    "code": "KZT",
+    "countryCode": "KZ" 
+  },
+  {
+    "name": "Kenyan Shilling",
+    "code": "KES",
+    "countryCode": "KE"
+  },
+  {
+    "name": "Kuwaiti Dinar",
+    "code": "KWD",
+    "countryCode": "KW"
+  },
+  {
+    "name": "Kyrgystani Som",
+    "code": "KGS",
+    "countryCode": "KG"
+  },
+  {
+    "name": "Lao Kip",
+    "code": "LAK",
+    "countryCode": "LA"
+  },
+  {
+    "name": "Lebanese Pound",
+    "code": "LBP",
+    "countryCode": "LB"
+  },
+  {
+    "name": "Lesotho Loti",
+    "code": "LSL",
+    "countryCode": "LS"
+  },
+  {
+    "name": "Liberian Dollar",
+    "code": "LRD",
+    "countryCode": "LR"
+  },
+  {
+    "name": "Libyan Dinar",
+    "code": "LYD",
+    "countryCode": "LY"
+  },
+  {
+    "name": "Macanese Pataca",
+    "code": "MOP",
+    "countryCode": "MO"
+  },
+  {
+    "name": "Malagasy Ariary",
+    "code": "MGA",
+    "countryCode": "MG"
+  },
+  {
+    "name": "Malawian Kwacha",
+    "code": "MWK",
+    "countryCode": "MW"
+  },
+  {
+    "name": "Malaysian Ringgit",
+    "code": "MYR",
+    "countryCode": "MY" 
+  },
+  {
+    "name": "Maldivian Rufiyaa",
+    "code": "MVR",
+    "countryCode": "MV"
+  },
+  {
+    "name": "Mauritanian Ouguiya",
+    "code": "MRU",
+    "countryCode": "MR"
+  },
+  {
+    "name": "Mauritian Rupee",
+    "code": "MUR",
+    "countryCode": "MU"
+  },
+  {
+    "name": "Mexican Peso",
+    "code": "MXN",
+    "countryCode": "MX"
+  },
+  {
+    "name": "Moldovan Leu",
+    "code": "MDL",
+    "countryCode": "MD"
+  },
+  {
+    "name": "Mongolian Tugrik",
+    "code": "MNT",
+    "countryCode": "MN"
+  },
+  {
+    "name": "Moroccan Dirham",
+    "code": "MAD",
+    "countryCode": "MA"
+  },
+  {
+    "name": "Mozambican Metical",
+    "code": "MZN",
+    "countryCode": "MZ"
+  },
+  {
+    "name": "Myanmar Kyat",
+    "code": "MMK",
+    "countryCode": "MM"
+  },
+  {
+    "name": "Namibian Dollar",
+    "code": "NAD",
+    "countryCode": "NA"
+  },
+  {
+    "name": "Nepalese Rupee",
+    "code": "NPR",
+    "countryCode": "NP"
+  },
+  {
+    "name": "Netherlands Antillean Gulden",
+    "code": "ANG",
+    "countryCode": "AN"
+  },
+  {
+    "name": "New Taiwan Dollar",
+    "code": "TWD",
+    "countryCode": "TW"
+  },
+  {
+    "name": "New Zealand Dollar",
+    "code": "NZD",
+    "countryCode": "NZ"
+  },
+  {
+    "name": "Nicaraguan Córdoba",
+    "code": "NIO",
+    "countryCode": "NI"
+  },
+  {
+    "name": "Nigerian Naira",
+    "code": "NGN",
+    "countryCode": "NG"
+  },
+  {
+    "name": "North Korean Won",
+    "code": "KPW",
+    "countryCode": "KP"
+  },
+  {
+    "name": "Norwegian Krone",
+    "code": "NOK",
+    "countryCode": "NO"
+  },
+  {
+    "name": "Omani Rial",
+    "code": "OMR",
+    "countryCode": "OM"
+  },
+  {
+    "name": "Pakistani Rupee",
+    "code": "PKR",
+    "countryCode": "PK"
+  },
+  {
+    "name": "Panamanian Balboa",
+    "code": "PAB",
+    "countryCode": "PA"
+  },
+  {
+    "name": "Papua New Guinean Kina",
+    "code": "PGK",
+    "countryCode": "PG"
+  },
+  {
+    "name": "Paraguayan Guarani",
+    "code": "PYG",
+    "countryCode": "PY"
+  },
+  {
+    "name": "Peruvian Sol",
+    "code": "PEN",
+    "countryCode": "PE"
+  },
+  {
+    "name": "Philippine Peso",
+    "code": "PHP",
+    "countryCode": "PH"
+  },
+  {
+    "name": "Polish Złoty",
+    "code": "PLN",
+    "countryCode": "PL"
+  },
+  {
+    "name": "Qatari Rial",
+    "code": "QAR",
+    "countryCode": "QA"
+  },
+  {
+    "name": "Romanian Leu",
+    "code": "RON",
+    "countryCode": "RO"
+  },
+  {
+    "name": "Russian Ruble",
+    "code": "RUB",
+    "countryCode": "RU"
+  },
+  {
+    "name": "Rwandan Franc",
+    "code": "RWF",
+    "countryCode": "RW"
+  },
+  {
+    "name": "Saint Helena Pound",
+    "code": "SHP",
+    "countryCode": "SH"
+  },
+  {
+    "name": "Samoan Tala",
+    "code": "WST",
+    "countryCode": "WS"
+  },
+  {
+    "name": "São Tomé and Príncipe Dobra",
+    "code": "STD",
+    "countryCode": "ST"
+  },
+  {
+    "name": "Saudi Riyal",
+    "code": "SAR",
+    "countryCode": "SA"
+  }, 
+  {
+    "name": "Serbian Dinar",
+    "code": "RSD",
+    "countryCode": "RS"
+  },
+  {
+    "name": "Seychellois Rupee",
+    "code": "SCR",
+    "countryCode": "SC"
+  },
+  {
+    "name": "Sierra Leonean Leone",
+    "code": "SLL",
+    "countryCode": "SL"
+  },
+  {
+    "name": "Singapore Dollar",
+    "code": "SGD",
+    "countryCode": "SG" 
+  },
+  {
+    "name": "Solomon Islands Dollar",
+    "code": "SBD",
+    "countryCode": "SB"
+  },
+  {
+    "name": "Somali Shilling",
+    "code": "SOS",
+    "countryCode": "SO"
+  },
+  {
+    "name": "South African Rand",
+    "code": "ZAR",
+    "countryCode": "ZA"
+  },
+  {
+    "name": "South Korean Won",
+    "code": "KRW",
+    "countryCode": "KR"
+  },
+  {
+    "name": "Sri Lankan Rupee",
+    "code": "LKR",
+    "countryCode": "LK"
+  },
+  {
+    "name": "Sudanese Pound",
+    "code": "SDG",
+    "countryCode": "SD"
+  },
+  {
+    "name": "Surinamese Dollar",
+    "code": "SRD",
+    "countryCode": "SR"
+  },
+  {
+    "name": "Swazi Lilangeni",
+    "code": "SZL",
+    "countryCode": "SZ"
+  },
+  {
+    "name": "Swedish Krona",
+    "code": "SEK",
+    "countryCode": "SE"
+  },
+  {
+    "name": "Swiss Franc",
+    "code": "CHF",
+    "countryCode": "CH"
+  },
+  {
+    "name": "Syrian Pound",
+    "code": "SYP",
+    "countryCode": "SY"
+  },
+  {
+    "name": "Tajikistani Somoni",
+    "code": "TJS",
+    "countryCode": "TJ"
+  },
+  {  
+    "name": "Tanzanian Shilling",
+    "code": "TZS", 
+    "countryCode": "TZ"
+  },
+{
+    "name": "Thai Baht",
+    "code": "THB",
+    "countryCode": "TH"
+  },
+  {
+    "name": "Tongan Paʻanga",
+    "code": "TOP",
+    "countryCode": "TO"
+  },
+  {
+    "name": "Trinidad and Tobago Dollar",
+    "code": "TTD",
+    "countryCode": "TT"
+  },
+  {
+    "name": "Tunisian Dinar",
+    "code": "TND",
+    "countryCode": "TN"
+  },
+  {
+    "name": "Turkish Lira",
+    "code": "TRY",
+    "countryCode": "TR"
+  },
+  {
+    "name": "Turkmenistani Manat",
+    "code": "TMT",
+    "countryCode": "TM"
+  },
+  {
+    "name": "Ugandan Shilling",
+    "code": "UGX",
+    "countryCode": "UG"
+  },
+  {
+    "name": "Ukrainian Hryvnia", 
+    "code": "UAH",
+    "countryCode": "UA"
+  },
+  {
+    "name": "United Arab Emirates Dirham",
+    "code": "AED",
+    "countryCode": "AE"
+  },
+  {
+    "name": "United States Dollar",
+    "code": "USD",
+    "countryCode": "US"
+  },
+  {
+    "name": "Uruguayan Peso",
+    "code": "UYU",
+    "countryCode": "UY"
+  },
+  {
+    "name": "Uzbekistan Som",
+    "code": "UZS",
+    "countryCode": "UZ"
+  },
+  {
+    "name": "Vanuatu Vatu",
+    "code": "VUV",
+    "countryCode": "VU" 
+  },
+  {
+    "name": "Venezuelan Bolívar",
+    "code": "VEF",
+    "countryCode": "VE"
+  },
+  {
+    "name": "Vietnamese Đồng",
+    "code": "VND",
+    "countryCode": "VN"
+  },
+  {
+    "name": "Yemeni Rial",
+    "code": "YER",
+    "countryCode": "YE"
+  },
+  {
+    "name": "Zambian Kwacha",
+    "code": "ZMW",
+    "countryCode": "ZM"
+  },
+  {
+    "name": "Zimbabwean Dollar",
+    "code": "ZWL",
+    "countryCode": "ZW"
+  }
+]
